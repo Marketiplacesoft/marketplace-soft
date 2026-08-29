@@ -1,0 +1,1 @@
+Plataforma digital de oportunidades, concursos públicos, vagas de emprego, bolsas de estudo e materiais de preparação.
