@@ -4,197 +4,767 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Marketplace SOFT</title>
+    <title>Marketplace SOFT | Oportunidades em Angola</title>
 
-    <meta name="description" content="Marketplace SOFT — Concursos públicos, vagas de emprego, bolsas de estudo e materiais de preparação.">
+    <meta name="description"
+          content="Marketplace SOFT — Concursos públicos, vagas de emprego, bolsas de estudo e materiais de preparação.">
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             background: #f5f7f6;
+            color: #1f2933;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           CABEÇALHO
+        ========================== */
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #087f3f;
+            text-decoration: none;
+        }
+
+        .logo span {
             color: #222;
         }
 
-        header {
-            background: #087f3f;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-
-        header p {
-            font-size: 15px;
-        }
-
         nav {
-            background: white;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 25px;
         }
 
         nav a {
-            color: #087f3f;
+            color: #333;
             text-decoration: none;
-            margin: 0 12px;
-            font-weight: bold;
+            font-weight: 600;
+            transition: 0.3s;
         }
+
+        nav a:hover {
+            color: #087f3f;
+        }
+
+        .menu-button {
+            display: none;
+            border: none;
+            background: transparent;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
 
         .hero {
-            text-align: center;
-            padding: 70px 20px;
-            background: white;
+            background: linear-gradient(135deg, #087f3f, #0a9b50);
+            color: white;
+            padding: 90px 20px;
         }
 
-        .hero h2 {
-            font-size: 34px;
-            color: #087f3f;
-            margin-bottom: 15px;
+        .hero-container {
+            max-width: 1100px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #d9ffe9;
         }
 
         .hero p {
-            max-width: 700px;
+            max-width: 720px;
             margin: auto;
-            line-height: 1.7;
-            color: #555;
+            font-size: 19px;
+            opacity: 0.95;
         }
 
-        .btn {
+        .hero-button {
             display: inline-block;
-            margin-top: 25px;
-            padding: 13px 25px;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: white;
+            color: #087f3f;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           PESQUISA
+        ========================== */
+
+        .search-section {
+            max-width: 900px;
+            margin: -30px auto 0;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .search-box {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 0 25px;
+            border: none;
+            border-radius: 7px;
             background: #087f3f;
             color: white;
-            text-decoration: none;
-            border-radius: 6px;
             font-weight: bold;
+            cursor: pointer;
         }
 
-        .services {
-            padding: 50px 20px;
-            max-width: 1100px;
+        /* =========================
+           CATEGORIAS
+        ========================== */
+
+        .section {
+            max-width: 1200px;
             margin: auto;
+            padding: 80px 20px;
         }
 
-        .services h2 {
+        .section-title {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
             color: #087f3f;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category {
+            background: white;
+            padding: 35px 20px;
+            text-align: center;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #222;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+        }
+
+        .category-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .category h3 {
+            color: #087f3f;
+            margin-bottom: 8px;
+        }
+
+        .category p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* =========================
+           DESTAQUES
+        ========================== */
+
+        .featured {
+            background: white;
         }
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
         }
 
         .card {
-            background: white;
-            padding: 30px 20px;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
         }
 
-        .card h3 {
-            color: #087f3f;
-            margin-bottom: 12px;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
 
-        .card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        footer {
+        .card-top {
             background: #087f3f;
             color: white;
-            text-align: center;
             padding: 25px;
-            margin-top: 30px;
         }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-body h3 {
+            margin-bottom: 10px;
+        }
+
+        .card-body p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .card-button {
+            display: inline-block;
+            margin-top: 20px;
+            color: #087f3f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* =========================
+           SOBRE
+        ========================== */
+
+        .about {
+            background: #f0f7f3;
+        }
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content h2 {
+            color: #087f3f;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        .about-content p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* =========================
+           RODAPÉ
+        ========================== */
+
+        footer {
+            background: #123d29;
+            color: white;
+            padding: 50px 20px 25px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #d4e1da;
+            font-size: 14px;
+        }
+
+        footer a {
+            display: block;
+            color: #d4e1da;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            text-align: center;
+            font-size: 13px;
+            color: #c7d5cd;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                border-top: 1px solid #eee;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .hero {
+                padding: 65px 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .categories {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-box button {
+                padding: 14px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+        }
+
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Marketplace SOFT</h1>
-        <p>Conectamos você às melhores oportunidades com preparação de qualidade.</p>
-    </header>
+<header>
 
-    <nav>
-        <a href="#">Início</a>
-        <a href="#">Concursos</a>
-        <a href="#">Vagas</a>
-        <a href="#">Bolsas</a>
-        <a href="#">Materiais</a>
-        <a href="#">Contactos</a>
-    </nav>
+    <div class="header-container">
 
-    <section class="hero">
-        <h2>Bem-vindo ao Marketplace SOFT</h2>
+        <a href="#" class="logo">
+            Marketplace <span>SOFT</span>
+        </a>
+
+        <button class="menu-button" onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <nav id="menu">
+
+            <a href="#">Início</a>
+            <a href="#categorias">Oportunidades</a>
+            <a href="#destaques">Destaques</a>
+            <a href="#sobre">Sobre Nós</a>
+            <a href="#contactos">Contactos</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-container">
+
+        <h1>
+            Encontre a sua próxima
+            <span>oportunidade.</span>
+        </h1>
 
         <p>
-            Encontre concursos públicos, oportunidades de emprego,
-            bolsas de estudo e materiais de preparação num único lugar.
+            Concursos públicos, vagas de emprego, bolsas de estudo
+            e materiais de preparação num único lugar.
         </p>
 
-        <a href="#" class="btn">Explorar oportunidades</a>
-    </section>
+        <a href="#categorias" class="hero-button">
+            Explorar oportunidades
+        </a>
 
-    <section class="services">
+    </div>
 
-        <h2>O que você encontra aqui</h2>
+</section>
 
-        <div class="cards">
 
-            <div class="card">
+<section class="search-section">
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Pesquisar concursos, vagas, bolsas..."
+        >
+
+        <button onclick="search()">
+            Pesquisar
+        </button>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="categorias">
+
+    <div class="section-title">
+
+        <h2>Encontre oportunidades</h2>
+
+        <p>
+            Explore as principais categorias do Marketplace SOFT.
+        </p>
+
+    </div>
+
+
+    <div class="categories">
+
+        <a href="#" class="category">
+
+            <div class="category-icon">📋</div>
+
+            <h3>Concursos Públicos</h3>
+
+            <p>
+                Informações e atualizações sobre concursos públicos.
+            </p>
+
+        </a>
+
+
+        <a href="#" class="category">
+
+            <div class="category-icon">💼</div>
+
+            <h3>Vagas de Emprego</h3>
+
+            <p>
+                Descubra novas oportunidades profissionais.
+            </p>
+
+        </a>
+
+
+        <a href="#" class="category">
+
+            <div class="category-icon">🎓</div>
+
+            <h3>Bolsas de Estudo</h3>
+
+            <p>
+                Encontre bolsas e programas de formação.
+            </p>
+
+        </a>
+
+
+        <a href="#" class="category">
+
+            <div class="category-icon">📚</div>
+
+            <h3>Materiais</h3>
+
+            <p>
+                Materiais para melhorar a sua preparação.
+            </p>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="section featured" id="destaques">
+
+    <div class="section-title">
+
+        <h2>Oportunidades em destaque</h2>
+
+        <p>
+            Confira algumas das oportunidades disponíveis.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-top">
+                <strong>CONCURSO</strong>
+            </div>
+
+            <div class="card-body">
+
                 <h3>Concursos Públicos</h3>
-                <p>
-                    Informações e atualizações sobre concursos públicos em Angola.
-                </p>
-            </div>
 
-            <div class="card">
-                <h3>Vagas de Emprego</h3>
                 <p>
-                    Descubra novas oportunidades de emprego e carreira.
+                    Acompanhe as principais informações sobre
+                    concursos públicos em Angola.
                 </p>
-            </div>
 
-            <div class="card">
-                <h3>Bolsas de Estudo</h3>
-                <p>
-                    Encontre oportunidades de bolsas e programas de formação.
-                </p>
-            </div>
+                <a href="#" class="card-button">
+                    Ver oportunidades →
+                </a>
 
-            <div class="card">
-                <h3>Materiais</h3>
-                <p>
-                    Prepare-se melhor com os nossos materiais de estudo.
-                </p>
             </div>
 
         </div>
 
-    </section>
 
-    <footer>
-        <p>© 2026 Marketplace SOFT. Todos os direitos reservados.</p>
-    </footer>
+        <div class="card">
+
+            <div class="card-top">
+                <strong>EMPREGO</strong>
+            </div>
+
+            <div class="card-body">
+
+                <h3>Vagas de Emprego</h3>
+
+                <p>
+                    Encontre oportunidades de trabalho
+                    e desenvolva a sua carreira.
+                </p>
+
+                <a href="#" class="card-button">
+                    Ver vagas →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-top">
+                <strong>FORMAÇÃO</strong>
+            </div>
+
+            <div class="card-body">
+
+                <h3>Materiais de Preparação</h3>
+
+                <p>
+                    Prepare-se para concursos e exames
+                    com materiais especializados.
+                </p>
+
+                <a href="#" class="card-button">
+                    Ver materiais →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section about" id="sobre">
+
+    <div class="about-content">
+
+        <h2>Sobre o Marketplace SOFT</h2>
+
+        <p>
+            O Marketplace SOFT é uma plataforma dedicada à divulgação
+            de oportunidades e à preparação de candidatos.
+        </p>
+
+        <p>
+            A nossa missão é facilitar o acesso a informações sobre
+            concursos públicos, emprego, bolsas de estudo e materiais
+            de preparação.
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer id="contactos">
+
+    <div class="footer-container">
+
+        <div>
+
+            <h3>Marketplace SOFT</h3>
+
+            <p>
+                Conectamos você às melhores oportunidades
+                com preparação de qualidade.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Links</h3>
+
+            <a href="#">Início</a>
+            <a href="#categorias">Oportunidades</a>
+            <a href="#sobre">Sobre Nós</a>
+
+        </div>
+
+
+        <div>
+
+            <h3>Contactos</h3>
+
+            <p>
+                Entre em contacto connosco para mais informações
+                sobre os nossos serviços.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 Marketplace SOFT. Todos os direitos reservados.
+
+    </div>
+
+</footer>
+
+
+<script>
+
+    function toggleMenu() {
+
+        const menu = document.getElementById("menu");
+
+        menu.classList.toggle("active");
+
+    }
+
+
+    function search() {
+
+        const input = document.getElementById("searchInput").value.trim();
+
+        if (input === "") {
+
+            alert("Digite algo para pesquisar.");
+
+            return;
+
+        }
+
+        alert("Pesquisa por: " + input);
+
+    }
+
+</script>
 
 </body>
 </html>
