@@ -448,9 +448,9 @@
 
         <nav id="menu">
 
-            <a href="#">Início</a>
+            <a href="index.html">Início</a>
             <a href="concursos.html">Concursos</a>
-            <a href="#destaques">Destaques</a>
+            <a href="vagas.html">Vagas</a>
             <a href="#sobre">Sobre Nós</a>
             <a href="#contactos">Contactos</a>
 
@@ -531,7 +531,7 @@
         </a>
 
 
-        <a href="#" class="category">
+        <a href="vagas.html" class="category">
 
             <div class="category-icon">💼</div>
 
@@ -604,7 +604,7 @@
                     concursos públicos em Angola.
                 </p>
 
-                <a href="#" class="card-button">
+                <a href="concursos.html" class="card-button">
                     Ver oportunidades →
                 </a>
 
@@ -628,7 +628,7 @@
                     e desenvolva a sua carreira.
                 </p>
 
-                <a href="#" class="card-button">
+                <a href="vagas.html" class="card-button">
                     Ver vagas →
                 </a>
 
@@ -750,19 +750,38 @@
 
     function search() {
 
-        const input = document.getElementById("searchInput").value.trim();
+    const input = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
 
-        if (input === "") {
-
-            alert("Digite algo para pesquisar.");
-
-            return;
-
-        }
-
-        alert("Pesquisa por: " + input);
-
+    if (input === "") {
+        alert("Digite algo para pesquisar.");
+        return;
     }
+
+    if (
+        input.includes("concurso") ||
+        input.includes("concurso público")
+    ) {
+        window.location.href = "concursos.html";
+        return;
+    }
+
+    if (
+        input.includes("vaga") ||
+        input.includes("emprego") ||
+        input.includes("trabalho")
+    ) {
+        window.location.href = "vagas.html";
+        return;
+    }
+
+    alert(
+        "Não encontramos uma oportunidade correspondente à sua pesquisa."
+    );
+}
 
 </script>
 

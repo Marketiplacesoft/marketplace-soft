@@ -399,7 +399,7 @@ footer a:hover {
     <div class="grid">
 
 
-        <article class="card">
+        <article class="card concurso-card">
 
             <div class="card-header">
 
@@ -429,7 +429,7 @@ footer a:hover {
         </article>
 
 
-        <article class="card">
+        <article class="card concurso-card">
 
             <div class="card-header">
 
@@ -459,7 +459,7 @@ footer a:hover {
         </article>
 
 
-        <article class="card">
+        <article class="card concurso-card">
 
             <div class="card-header">
 
@@ -562,19 +562,77 @@ function toggleMenu() {
 
 function searchConcurso() {
 
-    const input = document.getElementById("searchInput").value.trim();
+    const input = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
 
-    if (input === "") {
+    const cards = document.querySelectorAll(".concurso-card");
 
-        alert("Digite o nome do concurso, instituição ou área.");
+    let encontrados = 0;
 
-        return;
+    cards.forEach(function(card) {
+
+        const texto = card.innerText.toLowerCase();
+
+        if (input === "" || texto.includes(input)) {
+
+            card.style.display = "";
+
+            encontrados++;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    let mensagem = document.getElementById("noResults");
+
+    if (!mensagem) {
+
+        mensagem = document.createElement("p");
+
+        mensagem.id = "noResults";
+
+        mensagem.style.textAlign = "center";
+        mensagem.style.marginTop = "30px";
+        mensagem.style.color = "#666";
+
+        document
+            .querySelector(".grid")
+            .after(mensagem);
+    }
+
+    if (encontrados === 0) {
+
+        mensagem.textContent =
+            "Nenhum concurso encontrado para a sua pesquisa.";
+
+        mensagem.style.display = "block";
+
+    } else {
+
+        mensagem.style.display = "none";
 
     }
 
-    alert("Pesquisa por: " + input);
-
 }
+
+document
+    .getElementById("searchInput")
+    .addEventListener("keyup", function(event) {
+
+        if (event.key === "Enter") {
+
+            searchConcurso();
+
+        }
+
+    });
 
 </script>
 
