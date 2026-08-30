@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Concursos Públicos | Marketplace SOFT</title>
+
+    <meta name="description"
+          content="Encontre informações sobre concursos públicos em Angola no Marketplace SOFT.">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7f6;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #087f3f;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #222;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #087f3f;
+        }
+
+        .hero {
+            background: #087f3f;
+            color: white;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 17px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        .search {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            margin-bottom: 40px;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        .section-title {
+            margin-bottom: 25px;
+        }
+
+        .section-title h2 {
+            color: #087f3f;
+            font-size: 28px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .card-header {
+            background: #087f3f;
+            color: white;
+            padding: 20px;
+        }
+
+        .card-header span {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .card-body {
+            padding: 22px;
+        }
+
+        .card-body h3 {
+            margin-bottom: 12px;
+        }
+
+        .card-body p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 18px;
+            background: #087f3f;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        footer {
+            background: #123d29;
+            color: white;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #d4e1da;
+            font-size: 14px;
+        }
+
+        @media (max-width: 850px) {
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="header-container">
+
+        <a href="index.html" class="logo">
+            Marketplace <span>SOFT</span>
+        </a>
+
+        <nav>
+
+            <a href="index.html">Início</a>
+            <a href="concursos.html">Concursos</a>
+            <a href="#">Vagas</a>
+            <a href="#">Bolsas</a>
+            <a href="#">Materiais</a>
+            <a href="#">Contactos</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<section class="hero">
+
+    <h1>Concursos Públicos</h1>
+
+    <p>
+        Encontre informações, oportunidades e materiais
+        para preparar-se para concursos públicos em Angola.
+    </p>
+
+</section>
+
+
+<main class="container">
+
+    <div class="search">
+
+        <input
+            type="search"
+            placeholder="Pesquisar concurso, instituição ou área..."
+        >
+
+    </div>
+
+
+    <div class="section-title">
+
+        <h2>Concursos em destaque</h2>
+
+    </div>
+
+
+    <div class="grid">
+
+
+        <article class="card">
+
+            <div class="card-header">
+
+                <span>CONCURSO PÚBLICO</span>
+
+            </div>
+
+            <div class="card-body">
+
+                <h3>Administração Pública</h3>
+
+                <p>
+                    Informações sobre oportunidades de ingresso
+                    na Administração Pública.
+                </p>
+
+                <p>
+                    📍 Angola
+                </p>
+
+                <a href="#" class="button">
+                    Ver detalhes
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="card">
+
+            <div class="card-header">
+
+                <span>EDUCAÇÃO</span>
+
+            </div>
+
+            <div class="card-body">
+
+                <h3>Concurso da Educação</h3>
+
+                <p>
+                    Oportunidades para professores e técnicos
+                    do sector da educação.
+                </p>
+
+                <p>
+                    📍 Angola
+                </p>
+
+                <a href="#" class="button">
+                    Ver detalhes
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="card">
+
+            <div class="card-header">
+
+                <span>SAÚDE</span>
+
+            </div>
+
+            <div class="card-body">
+
+                <h3>Concurso da Saúde</h3>
+
+                <p>
+                    Informações sobre oportunidades no sector
+                    da saúde.
+                </p>
+
+                <p>
+                    📍 Angola
+                </p>
+
+                <a href="#" class="button">
+                    Ver detalhes
+                </a>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Marketplace SOFT. Todos os direitos reservados.
+    </p>
+
+</footer>
+
+</body>
+</html>
