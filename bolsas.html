@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bolsas de Estudo | Marketplace SOFT</title>
+
+    <meta name="description"
+          content="Encontre bolsas de estudo e oportunidades de formação no Marketplace SOFT.">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7f6;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           CABEÇALHO
+        ========================== */
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #087f3f;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #222;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #087f3f;
+        }
+
+        .menu-button {
+            display: none;
+            border: none;
+            background: transparent;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            background: #087f3f;
+            color: white;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 17px;
+        }
+
+        /* =========================
+           CONTEÚDO
+        ========================== */
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        /* =========================
+           PESQUISA
+        ========================== */
+
+        .search {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: #087f3f;
+        }
+
+        .search-box button {
+            padding: 0 25px;
+            border: none;
+            border-radius: 7px;
+            background: #087f3f;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .search-box button:hover {
+            background: #066b35;
+        }
+
+        /* =========================
+           FILTROS
+        ========================== */
+
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 45px;
+        }
+
+        .filters select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            background: white;
+            font-size: 15px;
+        }
+
+        /* =========================
+           TÍTULO
+        ========================== */
+
+        .section-title {
+            margin-bottom: 25px;
+        }
+
+        .section-title h2 {
+            color: #087f3f;
+            font-size: 28px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* =========================
+           CARTÕES
+        ========================== */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .card-header {
+            background: #087f3f;
+            color: white;
+            padding: 20px;
+        }
+
+        .card-header span {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .card-body {
+            padding: 22px;
+        }
+
+        .card-body h3 {
+            margin-bottom: 12px;
+        }
+
+        .card-body p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 18px;
+            background: #087f3f;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .button:hover {
+            background: #066b35;
+        }
+
+        /* =========================
+           RODAPÉ
+        ========================== */
+
+        footer {
+            background: #123d29;
+            color: white;
+            padding: 50px 20px 25px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #d4e1da;
+            font-size: 14px;
+        }
+
+        footer a {
+            display: block;
+            color: #d4e1da;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            text-align: center;
+            font-size: 13px;
+            color: #c7d5cd;
+        }
+
+        /* =========================
+           TABLET
+        ========================== */
+
+        @media (max-width: 850px) {
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .filters {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        /* =========================
+           TELEMÓVEL
+        ========================== */
+
+        @media (max-width: 700px) {
+
+            .header-container {
+                flex-direction: row;
+                position: relative;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                gap: 18px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-box button {
+                padding: 14px;
+            }
+
+            .filters {
+                grid-template-columns: 1fr;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="header-container">
+
+        <a href="index.html" class="logo">
+            Marketplace <span>SOFT</span>
+        </a>
+
+        <button class="menu-button" onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <nav id="menu">
+
+            <a href="index.html">Início</a>
+            <a href="concursos.html">Concursos</a>
+            <a href="vagas.html">Vagas</a>
+            <a href="bolsas.html">Bolsas</a>
+            <a href="#">Materiais</a>
+            <a href="#">Contactos</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<section class="hero">
+
+    <h1>Bolsas de Estudo</h1>
+
+    <p>
+        Encontre oportunidades de bolsas de estudo,
+        formação e desenvolvimento académico.
+    </p>
+
+</section>
+
+
+<main class="container">
+
+    <div class="search">
+
+        <div class="search-box">
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Pesquisar bolsa, país, área ou instituição..."
+            >
+
+            <button onclick="searchBolsas()">
+                Pesquisar
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="filters">
+
+        <select id="areaFilter">
+
+            <option value="">Todas as áreas</option>
+            <option value="Engenharia">Engenharia</option>
+            <option value="Tecnologia">Tecnologia</option>
+            <option value="Saúde">Saúde</option>
+            <option value="Educação">Educação</option>
+            <option value="Economia">Economia</option>
+            <option value="Direito">Direito</option>
+
+        </select>
+
+
+        <select id="countryFilter">
+
+            <option value="">Todos os destinos</option>
+            <option value="Angola">Angola</option>
+            <option value="Portugal">Portugal</option>
+            <option value="Brasil">Brasil</option>
+            <option value="Moçambique">Moçambique</option>
+            <option value="Internacional">Internacional</option>
+
+        </select>
+
+
+        <select id="levelFilter">
+
+            <option value="">Todos os níveis</option>
+            <option value="Licenciatura">Licenciatura</option>
+            <option value="Mestrado">Mestrado</option>
+            <option value="Doutoramento">Doutoramento</option>
+            <option value="Formação">Formação</option>
+
+        </select>
+
+    </div>
+
+
+    <div class="section-title">
+
+        <h2>Bolsas em destaque</h2>
+
+        <p>
+            Explore oportunidades académicas e de formação.
+        </p>
+
+    </div>
+
+
+    <div class="grid" id="scholarshipsGrid">
+
+
+        <article
+            class="card scholarship-card"
+            data-area="Tecnologia"
+            data-country="Portugal"
+            data-level="Mestrado"
+        >
+
+            <div class="card-header">
+
+                <span>BOLSA DE ESTUDO</span>
+
+            </div>
+
+            <div class="card-body">
+
+                <h3>Tecnologia e Informática</h3>
+
+                <p>
+                    Oportunidade de formação avançada
+                    na área de tecnologia.
+                </p>
+
+                <p>📍 Portugal</p>
+
+                <p>🎓 Mestrado</p>
+
+                <a href="#" class="button">
+                    Ver detalhes
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article
+            class="card scholarship-card"
+            data-area="Engenharia"
+            data-country="Brasil"
+            data-level="Licenciatura"
+        >
+
+            <div class="card-header">
+
+                <span>BOLSA DE ESTUDO</span>
+
+            </div>
+
+            <div class="card-body">
+
+                <h3>Engenharia</h3>
+
+                <p>
+                    Oportunidade académica para estudantes
+                    interessados em engenharia.
+                </p>
+
+                <p>📍 Brasil</p>
+
+                <p>🎓 Licenciatura</p>
+
+                <a href="#" class="button">
+                    Ver detalhes
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article
+            class="card scholarship-card"
+            data-area="Saúde"
+            data-country="Internacional"
+            data-level="Doutoramento"
+        >
+
+            <div class="card-header">
+
+                <span>BOLSA DE ESTUDO</span>
+
+            </div>
+
+            <div class="card-body">
+
+                <h3>Ciências da Saúde</h3>
+
+                <p>
+                    Programa destinado a estudantes
+                    e investigadores da área da saúde.
+                </p>
+
+                <p>🌍 Internacional</p>
+
+                <p>🎓 Doutoramento</p>
+
+                <a href="#" class="button">
+                    Ver detalhes
+                </a>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+
+    <p
+        id="noResults"
+        style="display:none; text-align:center; margin-top:35px; color:#666;"
+    >
+        Nenhuma bolsa encontrada.
+    </p>
+
+</main>
+
+
+<footer id="contactos">
+
+    <div class="footer-container">
+
+        <div>
+
+            <h3>Marketplace SOFT</h3>
+
+            <p>
+                Conectamos você às melhores oportunidades
+                com preparação de qualidade.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Links</h3>
+
+            <a href="index.html">Início</a>
+            <a href="concursos.html">Concursos</a>
+            <a href="vagas.html">Vagas</a>
+            <a href="bolsas.html">Bolsas</a>
+            <a href="#">Materiais</a>
+
+        </div>
+
+
+        <div>
+
+            <h3>Contactos</h3>
+
+            <p>
+                Entre em contacto connosco para mais informações
+                sobre os nossos serviços.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 Marketplace SOFT. Todos os direitos reservados.
+
+    </div>
+
+</footer>
+
+
+<script>
+
+function toggleMenu() {
+
+    const menu = document.getElementById("menu");
+
+    menu.classList.toggle("active");
+
+}
+
+
+function searchBolsas() {
+
+    const input = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const area = document
+        .getElementById("areaFilter")
+        .value
+        .toLowerCase();
+
+    const country = document
+        .getElementById("countryFilter")
+        .value
+        .toLowerCase();
+
+    const level = document
+        .getElementById("levelFilter")
+        .value
+        .toLowerCase();
+
+    const cards = document.querySelectorAll(".scholarship-card");
+
+    const noResults =
+        document.getElementById("noResults");
+
+    let encontrados = 0;
+
+
+    cards.forEach(function(card) {
+
+        const texto =
+            card.textContent.toLowerCase();
+
+        const cardArea =
+            card.dataset.area.toLowerCase();
+
+        const cardCountry =
+            card.dataset.country.toLowerCase();
+
+        const cardLevel =
+            card.dataset.level.toLowerCase();
+
+
+        const correspondePesquisa =
+            input === "" ||
+            texto.includes(input);
+
+        const correspondeArea =
+            area === "" ||
+            cardArea === area;
+
+        const correspondePais =
+            country === "" ||
+            cardCountry === country;
+
+        const correspondeNivel =
+            level === "" ||
+            cardLevel === level;
+
+
+        if (
+            correspondePesquisa &&
+            correspondeArea &&
+            correspondePais &&
+            correspondeNivel
+        ) {
+
+            card.style.display = "";
+
+            encontrados++;
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+
+    if (encontrados === 0) {
+
+        noResults.textContent =
+            "Nenhuma bolsa encontrada para a sua pesquisa.";
+
+        noResults.style.display = "block";
+
+    } else {
+
+        noResults.style.display = "none";
+
+    }
+
+}
+
+
+document
+    .getElementById("searchInput")
+    .addEventListener("keyup", function(event) {
+
+        if (event.key === "Enter") {
+
+            searchBolsas();
+
+        }
+
+    });
+
+
+document
+    .getElementById("areaFilter")
+    .addEventListener("change", searchBolsas);
+
+
+document
+    .getElementById("countryFilter")
+    .addEventListener("change", searchBolsas);
+
+
+document
+    .getElementById("levelFilter")
+    .addEventListener("change", searchBolsas);
+
+</script>
+
+</body>
+</html>
