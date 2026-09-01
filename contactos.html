@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contactos | Marketplace SOFT</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7f6;
+            color: #333;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #ffffff;
+            padding: 15px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #222;
+        }
+
+        .logo span {
+            color: #087f3f;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #087f3f;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        /* HERO */
+
+        .hero {
+            background: #087f3f;
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        /* CONTAINER */
+
+        .container {
+            width: 88%;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* CONTACTOS */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .contact-card .icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .contact-card h3 {
+            color: #087f3f;
+            margin-bottom: 12px;
+        }
+
+        .contact-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .contact-card a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #087f3f;
+            font-weight: bold;
+        }
+
+        /* FORMULÁRIO */
+
+        .form-section {
+            background: white;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .form-section h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #087f3f;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            background: #087f3f;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #066c35;
+        }
+
+        #formMessage {
+            text-align: center;
+            margin-top: 18px;
+            color: #087f3f;
+            font-weight: bold;
+            display: none;
+        }
+
+        /* ATENDIMENTO */
+
+        .support {
+            margin-top: 50px;
+            background: #e7f5ed;
+            padding: 35px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .support h2 {
+            margin-bottom: 15px;
+            color: #087f3f;
+        }
+
+        .support p {
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 18px;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            padding: 13px 25px;
+            background: #087f3f;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .whatsapp-btn:hover {
+            background: #066c35;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #111;
+            color: white;
+            padding: 40px 6%;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 8px 0;
+            color: #ccc;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        footer a:hover {
+            color: #2dbb70;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                gap: 18px;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .form-section {
+                padding: 25px 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        Marketplace <span>SOFT</span>
+    </div>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <nav id="menu">
+
+        <a href="index.html">Início</a>
+
+        <a href="concursos.html">Concursos</a>
+
+        <a href="vagas.html">Vagas</a>
+
+        <a href="bolsas.html">Bolsas</a>
+
+        <a href="materiais.html">Materiais</a>
+
+        <a href="contactos.html">Contactos</a>
+
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <h1>Entre em Contacto</h1>
+
+    <p>
+        Estamos disponíveis para ajudar com informações,
+        oportunidades, materiais de estudo e serviços do Marketplace SOFT.
+    </p>
+
+</section>
+
+
+<main class="container">
+
+
+    <div class="section-title">
+
+        <h2>Fale connosco</h2>
+
+        <p>
+            Escolha o canal mais conveniente para entrar em contacto com a nossa equipa.
+        </p>
+
+    </div>
+
+
+    <section class="contact-grid">
+
+
+        <div class="contact-card">
+
+            <div class="icon">📱</div>
+
+            <h3>WhatsApp</h3>
+
+            <p>
+                Atendimento rápido para dúvidas,
+                pedidos e suporte.
+            </p>
+
+            <a href="#" id="whatsappLink">
+                Falar no WhatsApp
+            </a>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <div class="icon">✉️</div>
+
+            <h3>E-mail</h3>
+
+            <p>
+                Envie-nos uma mensagem para assuntos
+                profissionais e suporte.
+            </p>
+
+            <a href="mailto:contacto@marketplacesoft.com">
+                Enviar E-mail
+            </a>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <div class="icon">🕒</div>
+
+            <h3>Atendimento</h3>
+
+            <p>
+                Segunda a sexta-feira<br>
+                08:00 – 18:00
+            </p>
+
+            <a href="#">
+                Ver informações
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+    <section class="form-section">
+
+        <h2>Envie uma mensagem</h2>
+
+
+        <form id="contactForm">
+
+            <div class="form-group">
+
+                <label for="name">
+                    Nome completo
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Digite o seu nome"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    E-mail
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Digite o seu e-mail"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="subject">
+                    Assunto
+                </label>
+
+                <select id="subject" required>
+
+                    <option value="">
+                        Selecione um assunto
+                    </option>
+
+                    <option value="Concurso">
+                        Concurso Público
+                    </option>
+
+                    <option value="Vaga">
+                        Vaga de Emprego
+                    </option>
+
+                    <option value="Bolsa">
+                        Bolsa de Estudo
+                    </option>
+
+                    <option value="Material">
+                        Material de Estudo
+                    </option>
+
+                    <option value="SEPE">
+                        Recuperação de conta SEPE
+                    </option>
+
+                    <option value="Suporte">
+                        Suporte
+                    </option>
+
+                    <option value="Outro">
+                        Outro assunto
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="message">
+                    Mensagem
+                </label>
+
+                <textarea
+                    id="message"
+                    placeholder="Escreva a sua mensagem..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="submit-btn"
+            >
+                Enviar mensagem
+            </button>
+
+
+            <p id="formMessage">
+                Mensagem preparada com sucesso.
+            </p>
+
+        </form>
+
+    </section>
+
+
+    <section class="support">
+
+        <h2>Atendimento rápido pelo WhatsApp</h2>
+
+        <p>
+            Para dúvidas urgentes, compras de materiais,
+            recuperação de conta SEPE ou informações sobre
+            oportunidades, utilize o nosso atendimento direto.
+        </p>
+
+        <a
+            href="#"
+            id="whatsappButton"
+            class="whatsapp-btn"
+        >
+            Falar agora pelo WhatsApp
+        </a>
+
+    </section>
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        Marketplace SOFT
+    </p>
+
+    <p>
+        Conectamos você às melhores oportunidades com preparação de qualidade.
+    </p>
+
+    <p>
+
+        <a href="index.html">Início</a>
+
+        <a href="concursos.html">Concursos</a>
+
+        <a href="vagas.html">Vagas</a>
+
+        <a href="bolsas.html">Bolsas</a>
+
+        <a href="materiais.html">Materiais</a>
+
+        <a href="contactos.html">Contactos</a>
+
+    </p>
+
+    <p>
+        © 2026 Marketplace SOFT. Todos os direitos reservados.
+    </p>
+
+</footer>
+
+
+<script>
+
+function toggleMenu() {
+
+    const menu = document.getElementById("menu");
+
+    menu.classList.toggle("active");
+
+}
+
+
+/*
+    COLOQUE AQUI O NÚMERO OFICIAL DO WHATSAPP
+    DO MARKETPLACE SOFT.
+
+    Exemplo:
+    const whatsappNumber = "244900000000";
+*/
+
+const whatsappNumber = "244900000000";
+
+
+const whatsappMessage =
+    "Olá, Marketplace SOFT. Gostaria de obter informações.";
+
+
+const whatsappURL =
+    "https://wa.me/" +
+    whatsappNumber +
+    "?text=" +
+    encodeURIComponent(whatsappMessage);
+
+
+document
+    .getElementById("whatsappLink")
+    .href = whatsappURL;
+
+
+document
+    .getElementById("whatsappButton")
+    .href = whatsappURL;
+
+
+document
+    .getElementById("contactForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document
+                .getElementById("name")
+                .value
+                .trim();
+
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
+
+
+        const subject =
+            document
+                .getElementById("subject")
+                .value
+                .trim();
+
+
+        const message =
+            document
+                .getElementById("message")
+                .value
+                .trim();
+
+
+        const text =
+            "Olá, Marketplace SOFT.%0A%0A" +
+
+            "Nome: " +
+            encodeURIComponent(name) +
+
+            "%0AE-mail: " +
+            encodeURIComponent(email) +
+
+            "%0AAssunto: " +
+            encodeURIComponent(subject) +
+
+            "%0A%0AMensagem:%0A" +
+            encodeURIComponent(message);
+
+
+        const finalURL =
+            "https://wa.me/" +
+            whatsappNumber +
+            "?text=" +
+            text;
+
+
+        document
+            .getElementById("formMessage")
+            .style.display = "block";
+
+
+        window.open(finalURL, "_blank");
+
+    });
+
+</script>
+
+
+</body>
+</html>
