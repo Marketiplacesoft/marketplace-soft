@@ -452,6 +452,7 @@
             <a href="concursos.html">Concursos</a>
             <a href="vagas.html">Vagas</a>
             <a href="bolsas.html">Bolsas</a>
+            <a href="materiais.html">Materiais</a>
             <a href="#contactos">Contactos</a>
 
         </nav>
@@ -557,7 +558,7 @@
         </a>
 
 
-        <a href="#" class="category">
+        <a href="materiais.html" class="category">
 
             <div class="category-icon">📚</div>
 
@@ -652,7 +653,7 @@
                     com materiais especializados.
                 </p>
 
-                <a href="#" class="card-button">
+                <a href="materiais.html" class="card-button">
                     Ver materiais →
                 </a>
 
@@ -739,16 +740,16 @@
 
 <script>
 
-    function toggleMenu() {
+function toggleMenu() {
 
-        const menu = document.getElementById("menu");
+    const menu = document.getElementById("menu");
 
-        menu.classList.toggle("active");
+    menu.classList.toggle("active");
 
-    }
+}
 
 
-    function search() {
+function search() {
 
     const input = document
         .getElementById("searchInput")
@@ -757,31 +758,84 @@
         .trim();
 
     if (input === "") {
+
         alert("Digite algo para pesquisar.");
+
         return;
+
     }
 
-    if (
-        input.includes("concurso") ||
-        input.includes("concurso público")
-    ) {
+
+    if (input.includes("concurso")) {
+
         window.location.href = "concursos.html";
+
         return;
+
     }
+
 
     if (
         input.includes("vaga") ||
         input.includes("emprego") ||
         input.includes("trabalho")
     ) {
+
         window.location.href = "vagas.html";
+
         return;
+
     }
+
+
+    if (
+        input.includes("bolsa") ||
+        input.includes("bolsas")
+    ) {
+
+        window.location.href = "bolsas.html";
+
+        return;
+
+    }
+
+
+    if (
+        input.includes("material") ||
+        input.includes("materiais") ||
+        input.includes("ebook") ||
+        input.includes("ebooks") ||
+        input.includes("apostila") ||
+        input.includes("apostilas") ||
+        input.includes("simulado") ||
+        input.includes("simulados")
+    ) {
+
+        window.location.href = "materiais.html";
+
+        return;
+
+    }
+
 
     alert(
         "Não encontramos uma oportunidade correspondente à sua pesquisa."
     );
+
 }
+
+
+document
+    .getElementById("searchInput")
+    .addEventListener("keyup", function(event) {
+
+        if (event.key === "Enter") {
+
+            search();
+
+        }
+
+    });
 
 </script>
 
