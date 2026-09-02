@@ -154,6 +154,37 @@
             font-weight: bold;
         }
 
+        .quick-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    max-width: 900px;
+    margin: 25px auto 0;
+}
+
+.quick-btn {
+    padding: 14px 18px;
+    border: 1px solid #087f3f;
+    background: white;
+    color: #087f3f;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.quick-btn:hover {
+    background: #087f3f;
+    color: white;
+}
+
+.support-note {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #777;
+}
+
         /* FORMULÁRIO */
 
         .form-section {
@@ -398,7 +429,7 @@
                 pedidos e suporte.
             </p>
 
-            <a href="#" id="whatsappLink">
+            <a href="https://wa.me/244932407503" id="whatsappLink">
                 Falar no WhatsApp
             </a>
 
@@ -416,7 +447,7 @@
                 profissionais e suporte.
             </p>
 
-            <a href="mailto:contacto@marketplacesoft.com">
+            <a href="marketiplacesoft@gmail.com">
                 Enviar E-mail
             </a>
 
@@ -562,23 +593,47 @@
 
     <section class="support">
 
-        <h2>Atendimento rápido pelo WhatsApp</h2>
+    <h2>Atendimento rápido</h2>
 
-        <p>
-            Para dúvidas urgentes, compras de materiais,
-            recuperação de conta SEPE ou informações sobre
-            oportunidades, utilize o nosso atendimento direto.
-        </p>
+    <p>
+        Escolha o assunto que deseja tratar com a
+        Marketplace SOFT através do WhatsApp.
+    </p>
 
-        <a
-            href="#"
-            id="whatsappButton"
-            class="whatsapp-btn"
-        >
-            Falar agora pelo WhatsApp
-        </a>
+    <div class="quick-grid">
 
-    </section>
+        <button
+            class="quick-btn"
+            onclick="openWhatsApp('Comprar material')">
+            📚 Comprar material
+        </button>
+
+        <button
+            class="quick-btn"
+            onclick="openWhatsApp('Informações sobre concursos')">
+            📋 Informações sobre concursos
+        </button>
+
+        <button
+            class="quick-btn"
+            onclick="openWhatsApp('Informações sobre vagas')">
+            💼 Informações sobre vagas
+        </button>
+
+        <button
+            class="quick-btn"
+            onclick="openWhatsApp('Recuperação de conta SEPE')">
+            🔐 Recuperação de conta SEPE
+        </button>
+
+    </div>
+
+    <p class="support-note">
+        Por segurança, não envie senhas, códigos de confirmação
+        ou outros dados confidenciais pelo WhatsApp.
+    </p>
+
+</section>
 
 
 </main>
@@ -628,20 +683,33 @@ function toggleMenu() {
 }
 
 
-/*
-    COLOQUE AQUI O NÚMERO OFICIAL DO WHATSAPP
-    DO MARKETPLACE SOFT.
+/* NÚMERO OFICIAL DO WHATSAPP */
 
-    Exemplo:
-    const whatsappNumber = "244900000000";
-*/
+const whatsappNumber = "244932407503";
 
-const whatsappNumber = "244900000000";
+function openWhatsApp(assunto) {
 
+    const mensagem =
+        "Olá, Marketplace SOFT.\n\n" +
+        "Gostaria de obter atendimento sobre: " +
+        assunto +
+        ".";
+
+    const url =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(mensagem);
+
+    window.open(url, "_blank");
+
+}
+
+
+/* WHATSAPP PRINCIPAL */
 
 const whatsappMessage =
     "Olá, Marketplace SOFT. Gostaria de obter informações.";
-
 
 const whatsappURL =
     "https://wa.me/" +
@@ -659,6 +727,8 @@ document
     .getElementById("whatsappButton")
     .href = whatsappURL;
 
+
+/* FORMULÁRIO */
 
 document
     .getElementById("contactForm")
@@ -716,6 +786,12 @@ document
             whatsappNumber +
             "?text=" +
             text;
+
+
+        document
+            .getElementById("formMessage")
+            .textContent =
+            "A mensagem está a ser encaminhada para o WhatsApp.";
 
 
         document
