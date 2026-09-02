@@ -753,6 +753,10 @@ function toggleMenu() {
 }
 
 
+/* =========================
+   SISTEMA DE PESQUISA
+========================= */
+
 function search() {
 
     const input = document
@@ -760,6 +764,7 @@ function search() {
         .value
         .toLowerCase()
         .trim();
+
 
     if (input === "") {
 
@@ -770,7 +775,16 @@ function search() {
     }
 
 
-    if (input.includes("concurso")) {
+    /* CONCURSOS */
+
+    if (
+        input.includes("concurso") ||
+        input.includes("concursos") ||
+        input.includes("concurso público") ||
+        input.includes("concurso publico") ||
+        input.includes("prova") ||
+        input.includes("recrutamento")
+    ) {
 
         window.location.href = "concursos.html";
 
@@ -779,10 +793,16 @@ function search() {
     }
 
 
+    /* VAGAS */
+
     if (
         input.includes("vaga") ||
+        input.includes("vagas") ||
         input.includes("emprego") ||
-        input.includes("trabalho")
+        input.includes("empregos") ||
+        input.includes("trabalho") ||
+        input.includes("trabalhos") ||
+        input.includes("carreira")
     ) {
 
         window.location.href = "vagas.html";
@@ -792,9 +812,16 @@ function search() {
     }
 
 
+    /* BOLSAS */
+
     if (
         input.includes("bolsa") ||
-        input.includes("bolsas")
+        input.includes("bolsas") ||
+        input.includes("estudo") ||
+        input.includes("estudos") ||
+        input.includes("universidade") ||
+        input.includes("universitário") ||
+        input.includes("universitario")
     ) {
 
         window.location.href = "bolsas.html";
@@ -804,15 +831,21 @@ function search() {
     }
 
 
+    /* MATERIAIS */
+
     if (
         input.includes("material") ||
         input.includes("materiais") ||
         input.includes("ebook") ||
         input.includes("ebooks") ||
+        input.includes("e-book") ||
         input.includes("apostila") ||
         input.includes("apostilas") ||
         input.includes("simulado") ||
-        input.includes("simulados")
+        input.includes("simulados") ||
+        input.includes("livro") ||
+        input.includes("livros") ||
+        input.includes("estudo")
     ) {
 
         window.location.href = "materiais.html";
@@ -823,11 +856,15 @@ function search() {
 
 
     alert(
-        "Não encontramos uma oportunidade correspondente à sua pesquisa."
+        "Não encontramos uma categoria correspondente à sua pesquisa."
     );
 
 }
 
+
+/* =========================
+   TECLA ENTER
+========================= */
 
 document
     .getElementById("searchInput")
@@ -836,6 +873,23 @@ document
         if (event.key === "Enter") {
 
             search();
+
+        }
+
+    });
+
+
+/* =========================
+   ESC PARA LIMPAR
+========================= */
+
+document
+    .getElementById("searchInput")
+    .addEventListener("keyup", function(event) {
+
+        if (event.key === "Escape") {
+
+            this.value = "";
 
         }
 

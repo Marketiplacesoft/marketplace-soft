@@ -323,7 +323,6 @@ footer a:hover {
 
 }
 
-
     </style>
 </head>
 
@@ -348,6 +347,7 @@ footer a:hover {
             <a href="vagas.html">Vagas</a>
             <a href="bolsas.html">Bolsas</a>
             <a href="materiais.html">Materiais</a>
+            <a href="sobre.html">Sobre Nós</a>
             <a href="contactos.html">Contactos</a>
 
         </nav>
@@ -355,7 +355,6 @@ footer a:hover {
     </div>
 
 </header>
-
 
 <section class="hero">
 
@@ -367,7 +366,6 @@ footer a:hover {
     </p>
 
 </section>
-
 
 <main class="container">
 
@@ -389,6 +387,12 @@ footer a:hover {
 
 </div>
 
+<p id="searchCount" style="
+    margin-top: 15px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+"></p>
 
     <div class="section-title">
 
@@ -400,7 +404,10 @@ footer a:hover {
     <div class="grid">
 
 
-        <article class="card concurso-card">
+        <article
+    class="card concurso-card"
+    data-keywords="administração pública governo angola concurso emprego técnico administrativo"
+>
 
             <div class="card-header">
 
@@ -430,7 +437,10 @@ footer a:hover {
         </article>
 
 
-        <article class="card concurso-card">
+        <article
+    class="card concurso-card"
+    data-keywords="educação med ministério educação professor professores técnico técnico médio concurso angola"
+>
 
             <div class="card-header">
 
@@ -460,7 +470,10 @@ footer a:hover {
         </article>
 
 
-        <article class="card concurso-card">
+        <article
+    class="card concurso-card"
+    data-keywords="saúde minsa ministério saúde enfermeiro enfermeiros médico médicos técnico saúde concurso angola"
+>
 
             <div class="card-header">
 
@@ -554,13 +567,6 @@ function toggleMenu() {
 
 }
 
-function toggleMenu() {
-
-    const menu = document.getElementById("menu");
-
-    menu.classList.toggle("active");
-
-}
 
 function searchConcurso() {
 
@@ -574,9 +580,16 @@ function searchConcurso() {
 
     let encontrados = 0;
 
+    const searchCount = document.getElementById("searchCount");
+
+
     cards.forEach(function(card) {
 
-        const texto = card.innerText.toLowerCase();
+        const texto = (
+    card.innerText +
+    " " +
+    card.dataset.keywords
+    ).toLowerCase();
 
         if (input === "" || texto.includes(input)) {
 
@@ -592,7 +605,9 @@ function searchConcurso() {
 
     });
 
+
     let mensagem = document.getElementById("noResults");
+
 
     if (!mensagem) {
 
@@ -603,11 +618,14 @@ function searchConcurso() {
         mensagem.style.textAlign = "center";
         mensagem.style.marginTop = "30px";
         mensagem.style.color = "#666";
+        mensagem.style.fontSize = "16px";
 
         document
             .querySelector(".grid")
             .after(mensagem);
+
     }
+
 
     if (encontrados === 0) {
 
@@ -622,13 +640,61 @@ function searchConcurso() {
 
     }
 
+if (input === "") {
+
+    searchCount.textContent =
+        encontrados + " concursos disponíveis.";
+
+} else if (encontrados === 1) {
+
+    searchCount.textContent =
+        "1 concurso encontrado.";
+
+} else {
+
+    searchCount.textContent =
+        encontrados + " concursos encontrados.";
+
 }
+
+}
+
+
+/* PESQUISA ENQUANTO ESCREVE */
+
+document
+    .getElementById("searchInput")
+    .addEventListener("input", function() {
+
+        searchConcurso();
+
+    });
+
+
+/* ENTER PARA PESQUISAR */
 
 document
     .getElementById("searchInput")
     .addEventListener("keyup", function(event) {
 
         if (event.key === "Enter") {
+
+            searchConcurso();
+
+        }
+
+    });
+
+
+/* ESCAPE PARA LIMPAR */
+
+document
+    .getElementById("searchInput")
+    .addEventListener("keyup", function(event) {
+
+        if (event.key === "Escape") {
+
+            this.value = "";
 
             searchConcurso();
 
