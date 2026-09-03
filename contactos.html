@@ -405,17 +405,11 @@
     <nav id="menu">
 
         <a href="index.html">Início</a>
-
         <a href="concursos.html">Concursos</a>
-
         <a href="vagas.html">Vagas</a>
-
         <a href="bolsas.html">Bolsas</a>
-
         <a href="materiais.html">Materiais</a>
-
         <a href="sobre.html">Sobre Nós</a>
-
         <a href="contactos.html">Contactos</a>
 
     </nav>
@@ -434,9 +428,7 @@
 
 </section>
 
-
 <main class="container">
-
 
     <div class="section-title">
 
@@ -448,9 +440,7 @@
 
     </div>
 
-
     <section class="contact-grid">
-
 
         <div class="contact-card">
 
@@ -469,7 +459,6 @@
 
         </div>
 
-
         <div class="contact-card">
 
             <div class="icon">✉️</div>
@@ -486,7 +475,6 @@
             </a>
 
         </div>
-
 
         <div class="contact-card">
 
@@ -526,14 +514,11 @@
 
 </section>
 
-
     </section>
-
 
     <section class="form-section">
 
         <h2>Envie uma mensagem</h2>
-
 
         <form id="contactForm">
 
@@ -552,7 +537,6 @@
 
             </div>
 
-
             <div class="form-group">
 
                 <label for="email">
@@ -565,9 +549,7 @@
                     placeholder="Digite o seu e-mail"
                     required
                 >
-
             </div>
-
 
             <div class="form-group">
 
@@ -613,7 +595,6 @@
 
             </div>
 
-
             <div class="form-group">
 
                 <label for="message">
@@ -628,14 +609,12 @@
 
             </div>
 
-
             <button
                 type="submit"
                 class="submit-btn"
             >
                 Enviar mensagem
             </button>
-
 
             <p id="formMessage">
                 Mensagem preparada com sucesso.
@@ -644,7 +623,6 @@
         </form>
 
     </section>
-
 
     <section class="support">
 
@@ -690,9 +668,7 @@
 
 </section>
 
-
 </main>
-
 
 <footer>
 
@@ -705,19 +681,13 @@
     </p>
 
     <p>
-
         <a href="index.html">Início</a>
-
         <a href="concursos.html">Concursos</a>
-
         <a href="vagas.html">Vagas</a>
-
         <a href="bolsas.html">Bolsas</a>
-
         <a href="materiais.html">Materiais</a>
-
+        <a href="sobre.html">Sobre Nós</a>
         <a href="contactos.html">Contactos</a>
-
     </p>
 
     <p>
@@ -725,7 +695,6 @@
     </p>
 
 </footer>
-
 
 <script>
 
@@ -736,7 +705,6 @@ function toggleMenu() {
     menu.classList.toggle("active");
 
 }
-
 
 /* NÚMERO OFICIAL DO WHATSAPP */
 
@@ -760,7 +728,6 @@ function openWhatsApp(assunto) {
 
 }
 
-
 /* WHATSAPP PRINCIPAL */
 
 const whatsappMessage =
@@ -772,16 +739,13 @@ const whatsappURL =
     "?text=" +
     encodeURIComponent(whatsappMessage);
 
-
 document
     .getElementById("whatsappLink")
     .href = whatsappURL;
 
-
 document
     .getElementById("whatsappButton")
     .href = whatsappURL;
-
 
 /* FORMULÁRIO */
 
@@ -791,13 +755,11 @@ document
 
         event.preventDefault();
 
-
         const name =
             document
                 .getElementById("name")
                 .value
                 .trim();
-
 
         const email =
             document
@@ -805,20 +767,17 @@ document
                 .value
                 .trim();
 
-
         const subject =
             document
                 .getElementById("subject")
                 .value
                 .trim();
 
-
         const message =
             document
                 .getElementById("message")
                 .value
                 .trim();
-
 
         const text =
             "Olá, Marketplace SOFT.%0A%0A" +
@@ -835,31 +794,26 @@ document
             "%0A%0AMensagem:%0A" +
             encodeURIComponent(message);
 
-
         const finalURL =
             "https://wa.me/" +
             whatsappNumber +
             "?text=" +
             text;
 
-
         document
             .getElementById("formMessage")
             .textContent =
             "A mensagem está a ser encaminhada para o WhatsApp.";
 
-
         document
             .getElementById("formMessage")
             .style.display = "block";
-
 
         window.open(finalURL, "_blank");
 
     });
 
 </script>
-
 
 </body>
 </html>

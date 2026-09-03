@@ -314,6 +314,464 @@
             margin-bottom: 15px;
         }
 
+        /* ==============================
+   MATERIAIS EM DESTAQUE
+   ============================== */
+
+.materials-featured {
+    padding: 70px 20px;
+    background: #ffffff;
+}
+
+.section-title {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    color: #123d29;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #666;
+    font-size: 16px;
+}
+
+.materials-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.material-card {
+    background: #f8faf9;
+    border: 1px solid #e1e8e4;
+    border-radius: 12px;
+    padding: 30px 25px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.featured-material {
+    position: relative;
+    border: 2px solid #087f3f;
+}
+
+.material-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #087f3f;
+    color: #ffffff;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.material-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.material-icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.material-card h3 {
+    color: #123d29;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.material-card p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 72px;
+}
+
+.material-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #087f3f;
+    margin: 20px 0;
+}
+
+.material-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #087f3f;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.material-btn:hover {
+    background: #065f2f;
+}
+
+.materials-more {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.materials-more a {
+    color: #087f3f;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.materials-more a:hover {
+    text-decoration: underline;
+}
+
+/* ==============================
+   ACESSO RÁPIDO
+   ============================== */
+
+.quick-access {
+    padding: 70px 20px;
+    background: #f5f7f6;
+}
+
+.quick-access-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.quick-access-card {
+    display: block;
+    background: #ffffff;
+    padding: 30px 22px;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #e1e8e4;
+    transition: 0.3s ease;
+}
+
+.quick-access-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.quick-access-card span {
+    display: block;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.quick-access-card h3 {
+    color: #123d29;
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.quick-access-card p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 900px) {
+
+    .quick-access-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .quick-access {
+        padding: 50px 15px;
+    }
+
+    .quick-access-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ==============================
+   POR QUE ESCOLHER A MARKETPLACE SOFT
+   ============================== */
+
+.why-us {
+    padding: 70px 20px;
+    background: #f5f7f6;
+}
+
+.why-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.why-card {
+    background: #ffffff;
+    padding: 30px 22px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #e2e8e4;
+    transition: 0.3s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+.why-icon {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.why-card h3 {
+    color: #123d29;
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.why-card p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ==============================
+   CHAMADA PARA AÇÃO
+   ============================== */
+
+.cta-section {
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #087f3f, #123d29);
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+    color: #ffffff;
+    font-size: 32px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.cta-content p {
+    color: #e9f5ee;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.cta-buttons a {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.25s ease;
+}
+
+.cta-primary {
+    background: #ffffff;
+    color: #087f3f;
+}
+
+.cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cta-secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.cta-secondary:hover {
+    background: #ffffff;
+    color: #087f3f;
+    transform: translateY(-3px);
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 500px) {
+
+    .cta-section {
+        padding: 55px 18px;
+    }
+
+    .cta-content h2 {
+        font-size: 26px;
+    }
+
+    .cta-content p {
+        font-size: 15px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .cta-buttons a {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 900px) {
+
+    .why-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .why-us {
+        padding: 50px 15px;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ==============================
+   ESTATÍSTICAS
+   ============================== */
+
+.stats-section {
+    padding: 45px 20px;
+    background: #ffffff;
+}
+
+.stats-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 25px 15px;
+    border-right: 1px solid #e2e8e4;
+}
+
+.stat-card:last-child {
+    border-right: none;
+}
+
+.stat-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: #087f3f;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #666;
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 700px) {
+
+    .stats-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat-card {
+        border-right: none;
+        border-bottom: 1px solid #e2e8e4;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .stats-section {
+        padding: 35px 15px;
+    }
+
+    .stat-number {
+        font-size: 27px;
+    }
+
+}
+
+
+/* RESPONSIVO */
+@media (max-width: 800px) {
+
+    .materials-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .materials-featured {
+        padding: 50px 15px;
+    }
+
+    .section-title h2 {
+        font-size: 27px;
+    }
+
+    .materials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .material-card {
+        padding: 25px 20px;
+    }
+
+}
+
         /* =========================
            RODAPÉ
         ========================== */
@@ -454,6 +912,7 @@
             <a href="vagas.html">Vagas</a>
             <a href="bolsas.html">Bolsas</a>
             <a href="materiais.html">Materiais</a>
+            <a href="sobre.html">Sobre Nós</a>
             <a href="contactos.html">Contactos</a>
 
         </nav>
@@ -461,7 +920,6 @@
     </div>
 
 </header>
-
 
 <section class="hero">
 
@@ -485,7 +943,6 @@
 
 </section>
 
-
 <section class="search-section">
 
     <div class="search-box">
@@ -495,7 +952,6 @@
             id="searchInput"
             placeholder="Pesquisar concursos, vagas, bolsas..."
         >
-
         <button onclick="search()">
             Pesquisar
         </button>
@@ -503,7 +959,6 @@
     </div>
 
 </section>
-
 
 <section class="section" id="categorias">
 
@@ -516,7 +971,6 @@
         </p>
 
     </div>
-
 
     <div class="categories">
 
@@ -532,7 +986,6 @@
 
         </a>
 
-
         <a href="vagas.html" class="category">
 
             <div class="category-icon">💼</div>
@@ -545,7 +998,6 @@
 
         </a>
 
-
         <a href="bolsas.html" class="category">
 
             <div class="category-icon">🎓</div>
@@ -557,7 +1009,6 @@
             </p>
 
         </a>
-
 
         <a href="materiais.html" class="category">
 
@@ -574,7 +1025,6 @@
     </div>
 
 </section>
-
 
 <section class="section featured" id="destaques">
 
@@ -614,7 +1064,6 @@
 
         </div>
 
-
         <div class="card">
 
             <div class="card-top">
@@ -637,7 +1086,6 @@
             </div>
 
         </div>
-
 
         <div class="card">
 
@@ -666,6 +1114,98 @@
 
 </section>
 
+<!-- MATERIAIS EM DESTAQUE -->
+<section class="materials-featured">
+    <div class="section-title">
+        <h2>Materiais em destaque</h2>
+        <p>Prepare-se melhor com os nossos materiais de estudo e preparação.</p>
+    </div>
+
+    <div class="materials-grid">
+
+        <div class="material-card featured-material">
+    <span class="material-badge">MAIS PROCURADO</span>
+
+    <div class="material-icon">📘</div>
+            <h3>Guia de Preparação para Concursos Públicos</h3>
+            <p>Material completo para organizar os seus estudos e aumentar a sua preparação.</p>
+            <div class="material-price">2.500 Kz</div>
+            <a href="materiais.html" class="material-btn">
+    🛒 Comprar agora</a>
+        </div>
+
+        <div class="material-card">
+            <div class="material-icon">📝</div>
+            <h3>Simulados para Concursos</h3>
+            <p>Questões e exercícios para testar os seus conhecimentos antes da prova.</p>
+            <div class="material-price">1.500 Kz</div>
+            <a href="materiais.html" class="material-btn">
+    🛒 Comprar agora</a>
+        </div>
+
+        <div class="material-card">
+            <div class="material-icon">📚</div>
+            <h3>Apostila de Conhecimentos Gerais</h3>
+            <p>Conteúdo de apoio para reforçar a preparação para diferentes concursos.</p>
+            <div class="material-price">2.000 Kz</div>
+            <a href="materiais.html" class="material-btn">
+    🛒 Comprar agora</a>
+        </div>
+
+    </div>
+
+    <div class="materials-more">
+        <a href="materiais.html">Ver todos os materiais →</a>
+    </div>
+</section>
+
+<!-- POR QUE ESCOLHER A MARKETPLACE SOFT -->
+<section class="why-us">
+    <div class="section-title">
+        <h2>Por que escolher a Marketplace SOFT?</h2>
+        <p>Uma plataforma criada para facilitar o acesso a oportunidades e preparação de qualidade.</p>
+    </div>
+
+    <div class="why-grid">
+
+        <div class="why-card">
+            <div class="why-icon">🎯</div>
+            <h3>Oportunidades</h3>
+            <p>
+                Encontre informações sobre concursos públicos, vagas de emprego
+                e bolsas de estudo em um só lugar.
+            </p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">📚</div>
+            <h3>Preparação</h3>
+            <p>
+                Tenha acesso a materiais de estudo desenvolvidos para ajudar
+                na sua preparação.
+            </p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">⚡</div>
+            <h3>Praticidade</h3>
+            <p>
+                Consulte informações de forma simples, rápida e organizada,
+                diretamente pelo seu computador ou telemóvel.
+            </p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">🤝</div>
+            <h3>Suporte</h3>
+            <p>
+                Conte com atendimento para esclarecer dúvidas e obter
+                orientação sobre os nossos serviços.
+            </p>
+        </div>
+
+    </div>
+</section>
 
 <section class="section about" id="sobre">
 
@@ -686,6 +1226,95 @@
 
     </div>
 
+</section>
+
+<!-- ESTATÍSTICAS DA MARKETPLACE SOFT -->
+<section class="stats-section">
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+            <div class="stat-number">4+</div>
+            <div class="stat-label">Categorias de oportunidades</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Materiais e conteúdos</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Acesso à plataforma</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Foco na preparação</div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ACESSO RÁPIDO -->
+<section class="quick-access">
+
+    <div class="section-title">
+        <h2>Acesso rápido</h2>
+        <p>Encontre rapidamente aquilo que procura.</p>
+    </div>
+
+    <div class="quick-access-grid">
+
+        <a href="concursos.html" class="quick-access-card">
+            <span>📋</span>
+            <h3>Concursos Públicos</h3>
+            <p>Consulte concursos e oportunidades de ingresso.</p>
+        </a>
+
+        <a href="vagas.html" class="quick-access-card">
+            <span>💼</span>
+            <h3>Vagas de Emprego</h3>
+            <p>Encontre oportunidades profissionais.</p>
+        </a>
+
+        <a href="bolsas.html" class="quick-access-card">
+            <span>🎓</span>
+            <h3>Bolsas de Estudo</h3>
+            <p>Descubra oportunidades para estudar.</p>
+        </a>
+
+        <a href="materiais.html" class="quick-access-card">
+            <span>📚</span>
+            <h3>Materiais</h3>
+            <p>Prepare-se com os nossos conteúdos.</p>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- CHAMADA PARA AÇÃO -->
+<section class="cta-section">
+    <div class="cta-content">
+        <h2>Prepare-se hoje para conquistar a sua oportunidade.</h2>
+
+        <p>
+            Encontre concursos, vagas, bolsas de estudo e materiais
+            de preparação num só lugar.
+        </p>
+
+        <div class="cta-buttons">
+            <a href="materiais.html" class="cta-primary">
+                📚 Ver materiais
+            </a>
+
+            <a href="contactos.html" class="cta-secondary">
+                💬 Falar connosco
+            </a>
+        </div>
+    </div>
 </section>
 
 
@@ -709,11 +1338,12 @@
 
             <h3>Links</h3>
 
-            <a href="#">Início</a>
+            <a href="index.html">Início</a>
             <a href="concursos.html">Concursos</a>
             <a href="vagas.html">Vagas</a>
             <a href="bolsas.html">Bolsas</a>
             <a href="materiais.html">Materiais</a>
+            <a href="sobre.html">Sobre Nós</a>
             <a href="contactos.html">Contactos</a>
 
         </div>
@@ -740,7 +1370,6 @@
     </div>
 
 </footer>
-
 
 <script>
 
