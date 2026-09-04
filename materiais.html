@@ -221,6 +221,46 @@
             background: #066c35;
         }
 
+        /* ==============================
+   PREÇO DOS MATERIAIS
+   ============================== */
+
+.material-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #087f3f;
+    margin: 18px 0;
+}
+
+.card-btn {
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.card-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ==============================
+   PRODUTO EM DESTAQUE
+   ============================== */
+
+.featured-product {
+    position: relative;
+    border: 2px solid #087f3f;
+}
+
+.product-badge {
+    display: inline-block;
+    background: #087f3f;
+    color: #ffffff;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
         /* RODAPÉ */
 
         footer {
@@ -448,11 +488,12 @@
     <div class="grid">
 
         <div
-            class="card material-card"
+            class="card material-card featured-product"
             data-category="Concursos Públicos"
             data-format="PDF"
             data-level="Concurso"
         >
+        <span class="product-badge">⭐ DESTAQUE</span>
 
             <span class="tag">Concursos Públicos</span>
             <span class="tag">PDF</span>
@@ -466,12 +507,15 @@
 
             <p><strong>Formato:</strong> PDF</p>
 
-            <a href="#" class="card-btn">
-                Ver material
-            </a>
+<div class="material-price">
+    2.500 Kz
+</div>
+
+<a href="#" class="card-btn buy-btn" data-product="guia-concursos">
+    🛒 Comprar agora
+</a>
 
         </div>
-
 
         <div
             class="card material-card"
@@ -479,7 +523,6 @@
             data-format="eBook"
             data-level="Ensino Superior"
         >
-
             <span class="tag">História</span>
             <span class="tag">eBook</span>
 
@@ -492,12 +535,15 @@
 
             <p><strong>Formato:</strong> eBook</p>
 
-            <a href="#" class="card-btn">
-                Ver material
-            </a>
+<div class="material-price">
+    1.500 Kz
+</div>
+
+<a href="#" class="card-btn buy-btn" data-product="historia-angola">
+    🛒 Comprar agora
+</a>
 
         </div>
-
 
         <div
             class="card material-card"
@@ -518,10 +564,13 @@
 
             <p><strong>Formato:</strong> Apostila</p>
 
-            <a href="#" class="card-btn">
-                Ver material
-            </a>
+<div class="material-price">
+    2.000 Kz
+</div>
 
+<a href="#" class="card-btn buy-btn" data-product="matematica-concursos">
+    🛒 Comprar agora
+</a>>
         </div>
 
 
@@ -541,12 +590,15 @@
                 Questões para testar conhecimentos
                 e melhorar o desempenho nas provas da área da saúde.
             </p>
+<p><strong>Formato:</strong> Simulado</p>
 
-            <p><strong>Formato:</strong> Simulado</p>
+<div class="material-price">
+    1.500 Kz
+</div>
 
-            <a href="#" class="card-btn">
-                Ver material
-            </a>
+<a href="#" class="card-btn buy-btn" data-product="simulado-saude">
+    🛒 Comprar agora
+</a>
 
         </div>
 
@@ -570,12 +622,15 @@
 
             <p><strong>Formato:</strong> PDF</p>
 
-            <a href="#" class="card-btn">
-                Ver material
-            </a>
+<div class="material-price">
+    2.000 Kz
+</div>
+
+<a href="#" class="card-btn buy-btn" data-product="concurso-educacao">
+    🛒 Comprar agora
+</a>
 
         </div>
-
 
         <div
             class="card material-card"
@@ -596,9 +651,13 @@
 
             <p><strong>Formato:</strong> eBook</p>
 
-            <a href="#" class="card-btn">
-                Ver material
-            </a>
+<div class="material-price">
+    2.000 Kz
+</div>
+
+<a href="#" class="card-btn buy-btn" data-product="secretario-clinico">
+    🛒 Comprar agora
+</a>
 
         </div>
 
@@ -778,6 +837,17 @@ document
 document
     .getElementById("levelFilter")
     .addEventListener("change", searchMateriais);
+
+    // Identificação dos produtos para compra
+document.querySelectorAll(".buy-btn").forEach(function(button) {
+    button.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        const product = this.getAttribute("data-product");
+
+        console.log("Produto selecionado:", product);
+    });
+});
 
 </script>
 
