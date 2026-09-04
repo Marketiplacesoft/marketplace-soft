@@ -261,6 +261,86 @@
     margin-bottom: 12px;
 }
 
+/* Janela de compra */
+.purchase-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.purchase-box {
+    position: relative;
+    background: #fff;
+    width: 100%;
+    max-width: 480px;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    animation: purchaseOpen 0.25s ease;
+}
+
+.purchase-box h2 {
+    color: #087f3f;
+    margin-bottom: 15px;
+}
+
+.purchase-info {
+    color: #666;
+    line-height: 1.6;
+    margin: 15px 0 25px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    cursor: pointer;
+    color: #555;
+}
+
+.close-modal:hover {
+    color: #087f3f;
+}
+
+.confirm-purchase {
+    width: 100%;
+    border: none;
+    background: #087f3f;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.confirm-purchase:hover {
+    background: #065f2f;
+    transform: translateY(-2px);
+}
+
+@keyframes purchaseOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
         /* RODAPÉ */
 
         footer {
@@ -339,6 +419,24 @@
 
 <body>
 
+    <div id="purchaseModal" class="purchase-modal">
+    <div class="purchase-box">
+        <button class="close-modal" onclick="closePurchaseModal()">×</button>
+
+        <h2>🛒 Comprar material</h2>
+
+        <p id="purchaseProduct"></p>
+
+        <p class="purchase-info">
+            Depois de confirmar, você poderá continuar para o pagamento.
+        </p>
+
+        <button class="confirm-purchase" onclick="confirmPurchase()">
+            Continuar para pagamento
+        </button>
+    </div>
+</div>
+
 <header>
 
     <div class="logo">
@@ -366,7 +464,6 @@
     </nav>
 
 </header>
-
 
 <section class="hero">
 
@@ -673,7 +770,6 @@
 
 </main>
 
-
 <footer>
 
     <p>
@@ -810,7 +906,6 @@ function searchMateriais() {
 
 }
 
-
 document
     .getElementById("searchInput")
     .addEventListener("keyup", function(event) {
@@ -823,31 +918,75 @@ document
 
     });
 
-
 document
     .getElementById("categoryFilter")
     .addEventListener("change", searchMateriais);
-
 
 document
     .getElementById("formatFilter")
     .addEventListener("change", searchMateriais);
 
-
 document
     .getElementById("levelFilter")
     .addEventListener("change", searchMateriais);
 
-    // Identificação dos produtos para compra
+   // Produtos disponíveis
+const products = {
+    "guia-concursos": {
+        name: "Guia Completo para Concursos Públicos",
+        price: "2.500 Kz"
+    },
+
+    "historia-angola": {
+        name: "História de Angola",
+        price: "1.500 Kz"
+    },
+
+    "matematica-concursos": {
+        name: "Matemática para Concursos",
+        price: "2.000 Kz"
+    },
+
+    "simulado-saude": {
+        name: "Simulado para Concurso da Saúde",
+        price: "1.500 Kz"
+    },
+
+    "concurso-educacao": {
+        name: "Preparação para Concurso da Educação",
+        price: "2.000 Kz"
+    },
+
+    "secretario-clinico": {
+        name: "Manual do Secretário Clínico",
+        price: "2.000 Kz"
+    }
+};
+
+// Sistema de compra
 document.querySelectorAll(".buy-btn").forEach(function(button) {
     button.addEventListener("click", function(event) {
         event.preventDefault();
 
-        const product = this.getAttribute("data-product");
+        const productId = this.getAttribute("data-product");
 
-        console.log("Produto selecionado:", product);
+        if (!products[productId]) {
+            return;
+        }
+
+        window.location.href =
+            "checkout.html?product=" + encodeURIComponent(productId);
     });
 });
+// Fechar janela de compra
+function closePurchaseModal() {
+    document.getElementById("purchaseModal").style.display = "none";
+}
+
+// Continuar para pagamento
+function confirmPurchase() {
+    alert("O sistema de pagamento será configurado nesta próxima etapa.");
+}
 
 </script>
 
