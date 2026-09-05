@@ -165,6 +165,20 @@
             transform: translateY(-2px);
         }
 
+        .checkout-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    font-size: 20px;
+}
+
+.checkout-total strong {
+    color: #087f3f;
+    font-size: 24px;
+}
+
         /* RODAPÉ */
         footer {
             margin-top: 60px;
@@ -236,8 +250,15 @@
                     </p>
 
                     <div class="product-price" id="checkoutPrice">
-                        -- Kz
-                    </div>
+    -- Kz
+</div>
+
+<hr>
+
+<div class="checkout-total">
+    <span>Total:</span>
+    <strong id="checkoutTotal">-- Kz</strong>
+</div>
 
                 </div>
 
@@ -409,23 +430,54 @@
             document.getElementById("checkoutPrice").textContent =
                 products[productId].price;
 
+                document.getElementById("checkoutTotal").textContent =
+    products[productId].price;
+
         }
 
 
         document.getElementById("checkoutForm").addEventListener(
-            "submit",
-            function(event) {
+    "submit",
+    function(event) {
 
-                event.preventDefault();
+        event.preventDefault();
 
-                alert(
-                    "Checkout preparado com sucesso. " +
-                    "A integração do pagamento será adicionada na próxima etapa."
-                );
+        const name = document.getElementById("customerName").value.trim();
+        const phone = document.getElementById("customerPhone").value.trim();
+        const email = document.getElementById("customerEmail").value.trim();
+        const paymentMethod = document.getElementById("paymentMethod").value;
 
-            }
-        );
+        const orderNumber =
+    "MS-" + Date.now().toString().slice(-8);
 
+localStorage.setItem("marketplaceOrder", JSON.stringify({
+    orderNumber: orderNumber,
+    productId: productId,
+    name: name,
+    phone: phone,
+    email: email,
+    paymentMethod: paymentMethod
+}));
+
+        if (!name || !phone || !email || !paymentMethod) {
+            alert("Por favor, preencha todos os campos.");
+            return;
+        }
+
+        const product = products[productId];
+
+        if (!product) {
+            alert("Não foi possível identificar o material.");
+            return;
+        }
+
+       window.location.href =
+    "pedido-confirmado.html?product=" +
+    encodeURIComponent(productId) +
+    "&order=" +
+    encodeURIComponent(orderNumber);
+    }
+);
     </script>
 
 </body>
