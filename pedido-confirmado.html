@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pedido Confirmado | Marketplace SOFT</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7f6;
+            color: #222;
+        }
+
+        .confirmation-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .confirmation-box {
+            width: 100%;
+            max-width: 550px;
+            background: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
+        }
+
+        .success-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #087f3f;
+            margin-bottom: 12px;
+        }
+
+        .message {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .order-info {
+            background: #f5f7f6;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .order-info p {
+            margin: 8px 0;
+        }
+
+        .order-info strong {
+            color: #087f3f;
+        }
+
+        .home-button {
+            display: inline-block;
+            text-decoration: none;
+            background: #087f3f;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .home-button:hover {
+            background: #065f2f;
+            transform: translateY(-2px);
+        }
+
+        .support {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .payment-button {
+    display: inline-block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 8px;
+    background: #087f3f;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.payment-button:hover {
+    background: #065f2f;
+    transform: translateY(-2px);
+}
+    </style>
+</head>
+
+<body>
+
+    <main class="confirmation-container">
+
+        <div class="confirmation-box">
+
+            <div class="success-icon">
+                ✅
+            </div>
+
+            <h1>Pedido recebido!</h1>
+
+            <p class="message">
+                O seu pedido foi registado com sucesso.
+                Estamos a preparar os próximos passos para concluir
+                a sua compra.
+            </p>
+
+            <div class="order-info">
+
+    <p>
+        <strong>Nº do pedido:</strong>
+        <span id="orderNumber">--</span>
+    </p>
+
+    <p>
+        <strong>Cliente:</strong>
+        <span id="confirmedName">--</span>
+    </p>
+
+    <p>
+        <strong>WhatsApp:</strong>
+        <span id="confirmedPhone">--</span>
+    </p>
+
+    <p>
+        <strong>E-mail:</strong>
+        <span id="confirmedEmail">--</span>
+    </p>
+
+    <p>
+        <strong>Produto:</strong>
+        <span id="confirmedProduct">--</span>
+    </p>
+
+    <p>
+        <strong>Total:</strong>
+        <span id="confirmedPrice">-- Kz</span>
+    </p>
+
+    <p>
+        <strong>Pagamento:</strong>
+        <span id="confirmedPayment">--</span>
+    </p>
+
+</div>
+
+            <a href="index.html" class="home-button">
+                🏠 Voltar ao início
+            </a>
+
+            <button class="payment-button" onclick="startPayment()">
+    💳 Pagar agora
+</button>
+
+            <p class="support">
+                Precisa de ajuda? Entre em contacto com a Marketplace SOFT.
+            </p>
+
+        </div>
+
+    </main>
+
+    <script>
+
+        const params = new URLSearchParams(window.location.search);
+
+        const productId = params.get("product");
+
+        const savedOrder = JSON.parse(
+    localStorage.getItem("marketplaceOrder")
+);
+
+if (savedOrder) {
+
+    document.getElementById("orderNumber").textContent =
+        savedOrder.orderNumber;
+
+    document.getElementById("confirmedName").textContent =
+        savedOrder.name;
+
+    document.getElementById("confirmedPhone").textContent =
+        savedOrder.phone;
+
+    document.getElementById("confirmedEmail").textContent =
+        savedOrder.email;
+
+    document.getElementById("confirmedPayment").textContent =
+        savedOrder.paymentMethod;
+}
+
+        const products = {
+
+            "guia-concursos": {
+                name: "Guia Completo para Concursos Públicos",
+                price: "2.500 Kz"
+            },
+
+            "historia-angola": {
+                name: "História de Angola",
+                price: "1.500 Kz"
+            },
+
+            "matematica-concursos": {
+                name: "Matemática para Concursos",
+                price: "2.000 Kz"
+            },
+
+            "simulado-saude": {
+                name: "Simulado para Concurso da Saúde",
+                price: "1.500 Kz"
+            },
+
+            "concurso-educacao": {
+                name: "Preparação para Concurso da Educação",
+                price: "2.000 Kz"
+            },
+
+            "secretario-clinico": {
+                name: "Manual do Secretário Clínico",
+                price: "2.000 Kz"
+            }
+
+        };
+
+        if (productId && products[productId]) {
+            
+            document.getElementById("confirmedProduct").textContent =
+                products[productId].name;
+
+            document.getElementById("confirmedPrice").textContent =
+                products[productId].price;
+
+        }
+
+       function startPayment() {
+
+    const order = JSON.parse(
+        localStorage.getItem("marketplaceOrder")
+    );
+
+    if (!order) {
+        alert("Não foi possível encontrar o pedido.");
+        return;
+    }
+
+    window.location.href = "pagamento.html";
+}
+    </script>
+
+</body>
+</html>
